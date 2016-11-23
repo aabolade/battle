@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-class App < Sinatra::Base
+class Battle < Sinatra::Base
   set :sessions, true
 
   enable :sessions
