@@ -1,10 +1,9 @@
 require 'sinatra/base'
-require 'player'
-require 'game'
+require_relative 'player.rb'
+require_relative 'game.rb'
 
 class Battle < Sinatra::Base
   set :sessions, true
-
   enable :sessions
 
   get '/' do
@@ -19,15 +18,14 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player1 = $game.player1
-    @player2 = $game.player2
+    @game = $game
     erb :play
   end
 
   get '/attack' do
-    @player1 = $game.player1
-    @player2 = $game.player2
-    $game.attack(@player2)
+    @game = $game
+    @game.attack
+    @game.turn_switch
     erb :attack
   end
 

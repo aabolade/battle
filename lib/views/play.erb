@@ -1,10 +1,12 @@
 <div>
-  <%= @player1.name %> vs. <%= @player2.name %>
+  <%= @game.player1.name %> vs. <%= @game.player2.name %>
 </div>
 <div>
-  <%= @player2.name %>: <%= @player2.health %>HP
+  <%= @game.player_defense.name %>: <%= @game.player_defense.health %>HP
 </div>
-
+<div>
+  <%= @game.player_attack.name %>: <%= @game.player_attack.health %>HP
+</div>
 
 <div>
   <form action = "/attack" method = "get">

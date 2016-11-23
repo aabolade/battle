@@ -25,6 +25,7 @@ RSpec.feature "Attacking P2", type: :feature do
 
     sign_in_and_play
     expect(page).not_to have_content "Pikachu attacked Charizard!"
+
     click_button("attack")
 
     expect(page).to have_content "Pikachu attacked Charizard!"
@@ -33,10 +34,19 @@ RSpec.feature "Attacking P2", type: :feature do
 
   scenario "Player 2's health should decrease by 10HP" do
     sign_in_and_play
-    click_button("attack")
-    click_button("proceed")
+    attack!
     expect(page).to have_content("Charizard: #{90}HP")
 
   end
 
+end
+
+RSpec.feature "Turn switching", type: :feature do
+
+  scenario "after attacking player two, player one should be attacked" do
+    sign_in_and_play
+    attack!
+    attack!
+    expect(page).to have_content("Pikachu: 90HP")
+  end
 end
