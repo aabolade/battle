@@ -9,6 +9,7 @@ class Game
 
   def attack
     player_defense.take_damage
+    turn_switch
   end
 
   def player_attack

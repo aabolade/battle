@@ -43,6 +43,10 @@ end
 
 RSpec.feature "Turn switching", type: :feature do
 
+  scenario "should display who's turn to attack it is" do
+    sign_in_and_play
+    expect(page).to have_content("Pikachu's turn!")
+  end
   scenario "after attacking player two, player one should be attacked" do
     sign_in_and_play
     attack!
