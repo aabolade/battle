@@ -10,4 +10,10 @@ describe Player do
   it "should start with 100 HP" do
     expect(player.health).to eq 100
   end
+
+  describe "Attacking another player" do
+    it "Attacking another player will decrease the HP by 10" do
+      expect{player.attack(player)}.to change{player.health}.by -10
+    end
+  end
 end
