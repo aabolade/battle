@@ -24,6 +24,14 @@ class Game
     players.reverse!
   end
 
+  def self.create(player1, player2)
+    @me = Game.new(player1, player2)
+  end
+
+  def self.instance
+    @me
+  end
+
   private
   attr_reader :players
 

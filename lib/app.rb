@@ -3,6 +3,15 @@ require_relative 'player.rb'
 require_relative 'game.rb'
 
 class Battle < Sinatra::Base
+
+  def self.game
+    @game
+  end
+
+  def self.game= game
+    @game = game
+  end
+
   set :sessions, true
   enable :sessions
 
@@ -13,13 +22,12 @@ class Battle < Sinatra::Base
   post '/names' do
     player1 = Player.new(params[:p1name])
     player2 = Player.new(params[:p2name])
-    $game = Game.new(player1, player2)
+    @game = Game.create(player1, player2)
     redirect to('/play')
   end
 
   get '/play' do
-
-    @game = $game
+    @game = Game.instance
     if @game.player_attack.health > 0
       erb :play
     else
@@ -28,13 +36,13 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    @game = $game
+    @game = Game.instance
     @game.attack
     erb :attack
   end
 
   get '/lose' do
-    @game = $game
+    @game = Game.instance
     erb :lose
   end
 
