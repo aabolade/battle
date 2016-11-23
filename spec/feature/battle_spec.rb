@@ -54,3 +54,11 @@ RSpec.feature "Turn switching", type: :feature do
     expect(page).to have_content("Pikachu: 90HP")
   end
 end
+
+RSpec.feature "Losing", type: :feature do
+  scenario "should display player has lost! if HP reaches 0" do
+    sign_in_and_play
+    19.times {attack!}
+    expect(page).to have_content("Charizard has lost!")
+  end
+end

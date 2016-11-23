@@ -18,14 +18,24 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
+
     @game = $game
-    erb :play
+    if @game.player_attack.health > 0
+      erb :play
+    else
+      redirect to ('/lose')
+    end
   end
 
   get '/attack' do
     @game = $game
     @game.attack
     erb :attack
+  end
+
+  get '/lose' do
+    @game = $game
+    erb :lose
   end
 
 
