@@ -7,7 +7,7 @@ class Player
   end
 
   def take_damage
-    self.health -= 10
+    self.health -= rand(5..15)
   end
 
   private
