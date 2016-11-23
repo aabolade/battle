@@ -37,7 +37,6 @@ RSpec.feature "Attacking P2", type: :feature do
     click_button("proceed")
     expect(page).to have_content("Charizard: #{90}HP")
 
-
   end
 
 end
