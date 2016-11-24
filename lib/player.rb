@@ -8,8 +8,8 @@ class Player
     @hp = 100
   end
 
-  def attack(player)
-    player.hp -= 10
+  def receive_dmg
+    self.hp -= 10
   end
 
 end

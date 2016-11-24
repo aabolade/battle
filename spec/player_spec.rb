@@ -12,7 +12,4 @@ describe Player do
     expect(player.hp).to eq 100
   end
 
-  it 'expects hp to be reduced by 10' do
-    expect {player.attack(player)}.to change {player.hp}.by(-10)
-  end
 end
