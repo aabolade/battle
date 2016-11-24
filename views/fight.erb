@@ -1,3 +1,7 @@
 <div>
-  Attack hit!
+  <%=@player_1.name%> attacks <%=@player_2.name%>
 </div>
+
+<form action = "/play" method = "get">
+  <input type = "submit" value = "Confirm" id = "confirm">
+</form>
