@@ -29,4 +29,12 @@ RSpec.feature "ATTACK!", :type => :feature do
 
     expect(page).to have_content("Chris attacks Leke")
   end
+
+  scenario "Switching over the attack screen" do
+    sign_in_and_play
+    click_button('attack')
+    click_button('confirm')
+    click_button('attack')
+    expect(page).to have_content("Leke attacks Chris")
+  end
 end

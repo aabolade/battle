@@ -24,7 +24,7 @@ enable :sessions
 
   get '/fight' do
     @game = $game
-    @game.attack(@game.current_player)
+    @game.attack(@game.attacker)
     erb :fight
   end
 

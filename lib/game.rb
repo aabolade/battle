@@ -1,15 +1,15 @@
 class Game
 
   attr_reader :player_1, :player_2
-  attr_accessor :current_player
+  attr_accessor :victim, :attacker
 
   def initialize(player_1, player_2)
     @player_1 = player_1
     @player_2 = player_2
-    @current_player = player_1
+    @victim = player_2
+    @attacker = player_1
+
   end
-
-
 
   def attack(player)
     player.receive_dmg
@@ -17,10 +17,12 @@ class Game
   end
 
   def switch_turn
-    if self.current_player == @player_1
-      self.current_player = @player_2
+    if self.victim == @player_1
+      self.victim = @player_2
+      self.attacker = @player_1
     else
-      self.current_player = @player_1
+      self.victim = @player_1
+      self.attacker = @player_2
     end
   end
 

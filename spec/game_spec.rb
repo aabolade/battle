@@ -23,9 +23,11 @@ describe Game do
   describe "Switching turns" do
     it "calling switch turns will reverse player one and player two instances" do
       game.switch_turn
-      expect(game.current_player).not_to eq player1
+      expect(game.victim).not_to eq player2
+      expect(game.attacker).not_to eq player1
 
     end
+
   end
 
 
