@@ -20,6 +20,9 @@ enable :sessions
     erb :play
   end
 
+  get '/fight' do
+    erb :fight
+  end
 
   run! if app_file == $0
 end
