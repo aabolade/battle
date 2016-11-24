@@ -1,5 +1,3 @@
-require './lib/player'
-
 RSpec.feature "Submitting name", :type => :feature do
   scenario "User enters name to play" do
     sign_in_and_play
